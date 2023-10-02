@@ -74,9 +74,9 @@ print([x['name'] for x in arranged_output[0][0]])
 # TODO:
     # Logic to parse the arranged output.
     # Rules to bear in mind:
-        # If there's no modifier before or after a note, it is assumed it's duration is 1/4.
-        # If there's a noteHeadHalf before (it's always before) then the duration is 1/2.
-        # Move the "beam" element in the scoreParser to modifiers.
+        # If there's no modifier before or after a note, it is assumed it's duration is 1/4. --- OK
+        # If there's a noteHeadHalf before (it's always before) then the duration is 1/2. --- OK
+        # Move the "beam" element in the scoreParser to modifiers. --- OK
         # To verify the duration, assume that everything between a barline and the other must add to the specified time signature.
         # To specify the key alteration (armor), see where in the SCORE element the keySharp/keyNatural/KeyFlat/doubleSharp is.
         # Bear in mind that the model is dumb: it recognizes only up to 2 sharp. There could be even 4 or 5 in most extreme cases.

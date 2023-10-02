@@ -1,3 +1,4 @@
+import json
 from typing import List
 from enum import Enum
 from pymusicxml import *
@@ -22,7 +23,7 @@ class ScoreTypes(Enum):
         1, 9)
 
 
-class ScoreElement:
+class ScoreElement(object):
     def __init__(self, type: ScoreTypes, asString: str):
         self.type = type
         self.asString = asString
@@ -61,7 +62,7 @@ class ScoreElement:
         elif asString in rests:
             return MyRest(asString)
         elif asString in durations:
-            return Duration(asString)
+            return MyDuration(asString)
         elif asString in metas:
             return MyMeta(asString)
         elif asString in others:
@@ -72,12 +73,12 @@ class ScoreElement:
 
 class MyTimeSignature(ScoreElement):
     def __init__(self, asString: str):
-        super(ScoreTypes.timeSignature, asString)
+        super().__init__(ScoreTypes.timeSignature, asString)
         if asString in ['timeSigCommon', 'combTimeSignature']:
             pass  # Nothing more to do
         else:
             try:
-                self.duration: int = int(asString.split('timeSig')[0])
+                self.duration: int = int(asString.split('timeSig')[1])
             except:
                 raise TypeError('Time Signature not recognized')
 
@@ -94,14 +95,14 @@ class MyNote(ScoreElement):
     }
 
     def __init__(self, asString: str):
-        super(ScoreTypes.note, asString)
+        super().__init__(ScoreTypes.note, asString)
         self.pitch: str = self.itToIntMapping.get(asString.split('_')[0])
         self.octave: int = int(asString.split('_')[1])
 
 
 class MyModifier(ScoreElement):
     def __init__(self, asString: str):
-        super(ScoreTypes.modifier, asString)
+        super().__init__(ScoreTypes.modifier, asString)
 
 
 class MyClef(ScoreElement):
@@ -112,14 +113,14 @@ class MyClef(ScoreElement):
     }
 
     def __init__(self, asString: str):
-        super(ScoreTypes.clef, asString)
+        super().__init__(ScoreTypes.clef, asString)
         self.pitch: str = asString.split('Clef')[0].lower()
         self.line: int = self.pitchToLine.get(self.pitch)
 
 
 class MyRest(ScoreElement):
     def __init__(self, asString: str):
-        super(ScoreTypes.rest, asString)
+        super().__init__(ScoreTypes.rest, asString)
         if asString == 'rest8th':
             self.restDuration: str = 'eighth'
         elif asString == 'restQuarter':
@@ -138,7 +139,7 @@ class MyRest(ScoreElement):
 
 class MyDuration(ScoreElement):
     def __init__(self, asString: str):
-        super(ScoreTypes.duration, asString)
+        super().__init__(ScoreTypes.duration, asString)
         if asString == 'flag8thDown' or asString == 'flag8thUp':
             self.noteDuration: str = 'eighth'
         elif asString == 'noteheadHalf':
@@ -153,12 +154,12 @@ class MyDuration(ScoreElement):
 
 class MyMeta(ScoreElement):
     def __init__(self, asString: str):
-        super(ScoreTypes.meta, asString)
+        super().__init__(ScoreTypes.meta, asString)
 
 
 class MyOther(ScoreElement):
     def __init__(self, asString: str):
-        super(ScoreTypes.other, asString)
+        super().__init__(ScoreTypes.other, asString)
 
 
 class ScoreElementNotFoundInLine(Exception):
@@ -168,11 +169,9 @@ class ScoreElementNotFoundInLine(Exception):
 class DurationalObjectMappingNotFound(Exception):
     pass
 
-# def lineToScoreElement(line: str):
-#     if line.strip().startswith('Name:'):
-#         return ScoreElement.initScoreElement(line.split('Name:')[1].strip())
-#     else:
-#         raise ScoreElementNotFoundInLine
+
+# def elementNameToScoreElement(elementName: str):
+    # return ScoreElement.initScoreElement(elementName)
 
 
 def scoreElementToDurationalObject(scoreElement: ScoreElement):
@@ -211,22 +210,81 @@ if __name__ == "__main__":
     # Measures list
     measures: [Measure] = []
 
+    # List containing all elements that will be read from the json file
+    allElementsAsStrings: [str] = []
+
     # Open file
+    with open('./output/risultato_normalizzato.json') as f:
+        # Parse JSON
+        data = json.load(f)[0]
 
-    # Parse JSON
+        # Add all elements in the JSON to a list
+        allElementsAsStrings = [element['name'] for line in data for element in line]  # Python's crazy
 
-    # Add all elements in the JSON to a list
+    # Create new measure
+    measure: Measure = Measure(time_signature=(3, 4))
 
-    # For each element in the list, parse it and add it to a measure
-    measure: Measure = Measure(time_signature=(3,4))
-    
-    # If it's a 'barlineSingle', add current measure to measures list and start a new one
-    score.parts[0].extend(measure)
+    # Duration if needed
+    duration: Duration = None
+    changeDurationSemaphore: bool = False
 
-    
+    # For each element in the list, parse it (e te pare facile) and add it to the measure
+    for element in allElementsAsStrings:
+        scoreElement: ScoreElement = ScoreElement.initScoreElement(element)
+        try:
+            durationalObject = scoreElementToDurationalObject(scoreElement)
+            # TODO CHECK THIS
+            if isinstance(durationalObject, Clef):
+                measure.clef = durationalObject
+            ##################
+            elif isinstance(durationalObject, Duration):
+                duration = durationalObject
+                changeDurationSemaphore = True
+                continue
+            elif changeDurationSemaphore:
+                durationalObject.duration = duration
+                changeDurationSemaphore = False
+            measure.append(durationalObject)
+        except DurationalObjectMappingNotFound:
+            print(scoreElement.asString, " - ", scoreElement.type)
+            if scoreElement.type == ScoreTypes.other:
+                if scoreElement.asString == 'barlineSingle':
+                    # Add actual measure to the measures list
+                    measures.append(measure)
+                    # Finish actual measure and start a new one - with the same TS and Key as the previous one
+                    newMeasure: Measure = Measure(time_signature=measure.time_signature, key=measure.key)
+                    measure = newMeasure
+                elif scoreElement.asString == 'brace':
+                    pass
+            elif scoreElement.type == ScoreTypes.modifier:
+                if scoreElement.asString == 'beam':
+                    pass
+                elif scoreElement.asString == 'augmentationDot':
+                    measure.contents[-1].duration.num_dots += 1
+                elif scoreElement.asString == 'keySharp':
+                    measure.contents[-1].pitch.alteration += 1
+                elif scoreElement.asString == 'keyNatural':
+                    measure.contents[-1].pitch.alteration = 0
+                elif scoreElement.asString == 'keyFlat':
+                    measure.contents[-1].pitch.alteration -= 1
+                elif scoreElement.asString == 'doubleSharp':
+                    measure.contents[-1].pitch.alteration += 2
+            elif scoreElement.type == ScoreTypes.timeSignature:
+                pass
+            elif scoreElement.type == ScoreTypes.meta:
+                pass
+
+        # TTH:
+            # TimeSignature (to specify to each measure)
+            # Time modifiers
+            # Pitch modifiers --- OK
+            # Clefs --- OK
+            # Barline --- OK
+
+
+    score.parts[0].extend(measures)
+
     ########################
-
-    # TODO handle TimeSignature (to specify to each measure)
 
     # Add all elements to measure
     # This will be a for in
@@ -239,4 +297,4 @@ if __name__ == "__main__":
     # score.parts[0].extend(measures)
 
     # Export score
-    # score.export_to_file("./results/TestScore.musicxml")
+    score.export_to_file("./tmp/TestScore.musicxml")
