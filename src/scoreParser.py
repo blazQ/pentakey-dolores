@@ -130,7 +130,7 @@ class MyRest(ScoreElement):
         elif asString == 'rest16th':
             self.restDuration: str = '16th'
         elif asString == 'restHBar':
-            pass  # TODO handle this
+            pass
         elif asString == 'rest32nd':
             self.restDuration: str = '32nd'
         elif asString == 'rest64th':
@@ -168,10 +168,6 @@ class ScoreElementNotFoundInLine(Exception):
 
 class DurationalObjectMappingNotFound(Exception):
     pass
-
-
-# def elementNameToScoreElement(elementName: str):
-    # return ScoreElement.initScoreElement(elementName)
 
 
 def scoreElementToDurationalObject(scoreElement: ScoreElement):
@@ -222,7 +218,8 @@ if __name__ == "__main__":
         allElementsAsStrings = [element['name'] for line in data for element in line]  # Python's crazy
 
     # Create new measure
-    measure: Measure = Measure(time_signature=(3, 4))
+    # TODO handle TS
+    measure: Measure = Measure(time_signature=(3, 4), key=0)
 
     # Duration if needed
     duration: Duration = None
@@ -233,10 +230,9 @@ if __name__ == "__main__":
         scoreElement: ScoreElement = ScoreElement.initScoreElement(element)
         try:
             durationalObject = scoreElementToDurationalObject(scoreElement)
-            # TODO CHECK THIS
             if isinstance(durationalObject, Clef):
                 measure.clef = durationalObject
-            ##################
+                continue
             elif isinstance(durationalObject, Duration):
                 duration = durationalObject
                 changeDurationSemaphore = True
@@ -262,21 +258,39 @@ if __name__ == "__main__":
                 elif scoreElement.asString == 'augmentationDot':
                     measure.contents[-1].duration.num_dots += 1
                 elif scoreElement.asString == 'keySharp':
-                    measure.contents[-1].pitch.alteration += 1
+                    try:
+                        measure.contents[-1].pitch.alteration += 1
+                    except IndexError:
+                        # It's a key signature
+                        measure.key += 1
                 elif scoreElement.asString == 'keyNatural':
-                    measure.contents[-1].pitch.alteration = 0
+                    try:
+                        measure.contents[-1].pitch.alteration = 0
+                    except IndexError:
+                        # It's a key signature
+                        measure.key = 0 # is this really possible?
                 elif scoreElement.asString == 'keyFlat':
-                    measure.contents[-1].pitch.alteration -= 1
+                    try:
+                        measure.contents[-1].pitch.alteration -= 1
+                    except IndexError:
+                        # It's a key signature
+                        measure.key -= 1
                 elif scoreElement.asString == 'doubleSharp':
-                    measure.contents[-1].pitch.alteration += 2
+                    try:
+                        measure.contents[-1].pitch.alteration += 2
+                    except IndexError:
+                        # It's a key signature
+                        measure.key += 2
             elif scoreElement.type == ScoreTypes.timeSignature:
+                # TODO
                 pass
             elif scoreElement.type == ScoreTypes.meta:
                 pass
 
         # TTH:
-            # TimeSignature (to specify to each measure)
-            # Time modifiers
+            # Time signature (to specify to each measure)
+            # Key signatures (alterations after the clef) --- OK
+            # Time modifiers --- OK
             # Pitch modifiers --- OK
             # Clefs --- OK
             # Barline --- OK

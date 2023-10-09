@@ -109,8 +109,8 @@ def normalize_durations(arranged_output):
                     element_idx = row.index(element)
                     # create an equivalent json object
                     element_to_add = map_to_json(element['beams'])
-                    # add it after the current note # TODO: OR BEFORE, ASK Antonio what he prefers
-                    row.insert(element_idx+1, element_to_add)
+                    # add it before the current note
+                    row.insert(element_idx-1, element_to_add)
     return beam_removal(beams_normalized_output)
 
 def beam_removal(beam_normalized_output):
@@ -146,7 +146,7 @@ write_output(beams_cleaned_normalized_output, DefaultConfig.OUTPUT_FOLDER + "/" 
     # Rules to bear in mind:
         # If there's no modifier before or after a note, it is assumed its duration is 1/4. --- OK
         # If there's a noteHeadHalf before (it's always before) then the duration is 1/2. --- OK
-        # Remove the "beam" element in the scoreParser.
+        # Remove the "beam" element in the scoreParser. --- OK
         # To add up beams, take a peek 4/5 space before and after the current note. See if you can find a run of beams before or after. See if they intersect. Count how many intersect with the note. Divide the duration by 2 for every beam. --- OK
         # Add a mapping that will simply be done AFTER computing the whole spartito to map notes if the key has changed. For example, with gClef we have SI_1. With FClef we have RE_1.
 
