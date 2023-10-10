@@ -312,3 +312,12 @@ if __name__ == "__main__":
 
     # Export score
     score.export_to_file("./tmp/TestScore.musicxml")
+
+
+
+# TODO:
+'''
+    To wrap this up:
+    - We need to create a final script in the main folder that executes pentakey_adapter and then scoreParser.
+    - We need to write a convincing README, where we detail how to use the supplied notebook and where to download the weights and dataset.
+'''

@@ -173,20 +173,3 @@ write_output(beams_cleaned_normalized_output, DefaultConfig.OUTPUT_FOLDER + "/" 
 #print([x['name'] for x in beams_cleaned_normalized_output[0][0]])
 
 # Here, arranged output is [0][0] because the input melody has only one frame, so there's always the first [0].
-
-
-# The
-
-
-# TODO:
-    # Logic to parse the arranged output.
-    # Rules to bear in mind:
-        # If there's no modifier before or after a note, it is assumed its duration is 1/4. --- OK
-        # If there's a noteHeadHalf before (it's always before) then the duration is 1/2. --- OK
-        # Remove the "beam" element in the scoreParser.
-        # To add up beams, take a peek 4/5 space before and after the current note. See if you can find a run of beams before or after. See if they intersect. Count how many intersect with the note. Divide the duration by 2 for every beam. --- OK
-        # Add a mapping that will simply be done AFTER computing the whole spartito to map notes if the key has changed. For example, with gClef we have SI_1. With FClef we have RE_1.
-
-# TODO: @Antonio
-    # There's a problem with the MXML. MusicScore doesn't open it because the "step" tag inside the pitch tag (that's inside the "note" tag che al mercato mio padre comprò) has a lower case content for the note pitch.
-    # It should be uppercase. It could be a problem with the mapping
