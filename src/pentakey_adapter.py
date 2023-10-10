@@ -104,17 +104,53 @@ def normalize_durations(arranged_output):
     beams_normalized_output = extract_beams(arranged_output)
     for entry in arranged_output:
         for row in entry:
-            for element in row:
+            index = 0
+            while index < len(row):
+                element = row[index]
                 if 'beams' in element.keys():
-                    element_idx = row.index(element)
                     # create an equivalent json object
-                    element_to_add = map_to_json(element['beams'])
-                    # add it before the current note
-                    row.insert(element_idx-1, element_to_add)
+                        element_to_add = map_to_json(element['beams'])
+                    # add it after the current note
+                        row.insert(index, element_to_add)
+                        index+=1
+                index+=1
     return beam_removal(beams_normalized_output)
 
 def beam_removal(beam_normalized_output):
     return [[[element for element in row if element['name'] != 'beam'] for row in entry] for entry in beam_normalized_output]
+
+
+def element_higher(element, suspect):
+    element_center = element['relative_coordinates']['center_y']
+    suspect_center = suspect['relative_coordinates']['center_y']
+    if element_center < suspect_center:
+        return True
+    else: return False
+
+
+def tagTimeSign(beams_cleaned_output):
+    for entry in beams_cleaned_output:
+        for row in entry:
+            for element in row:
+                if 'timeSig' in element['name']:
+                    # Check if you haven't already tagged it
+                    if 'tag' not in element.keys():
+                        element['tag'] = 0
+                        # Search for the other one
+                        # Obviously you can do it in a more efficient way by thinking about the problem from the start
+                        # Simple brutal solution
+                        for suspect in row:
+                            # If it's the other timeSig
+                            if 'timeSig' in suspect['name'] and 'tag' not in suspect.keys():
+                                # Check which one is the denominator and which one is the numerator
+                                # Returns true if element is higher than suspect
+                                if element_higher(element, suspect):
+                                    element['tag'] = 'num'
+                                    suspect['tag'] = 'den'
+                                else:
+                                    element['tag'] = 'den'
+                                    suspect['tag'] = 'num'
+
 
 
 def write_output(arranged_output, file_name):
@@ -125,6 +161,7 @@ def write_output(arranged_output, file_name):
 
 arranged_output = get_arranged_output(DefaultConfig.INPUT_FOLDER + "/" + DefaultConfig.INPUT_FILE)
 beams_cleaned_normalized_output = normalize_durations(arranged_output)
+tagTimeSign(beams_cleaned_normalized_output)
 write_output(beams_cleaned_normalized_output, DefaultConfig.OUTPUT_FOLDER + "/" + DefaultConfig.OUTPUT_NORMALIZED_FILE)
 
 # After executing the function, you will have a list of lists (of lists, since there could be more frames). Every list inside the ll will be a row of the score.
@@ -146,7 +183,7 @@ write_output(beams_cleaned_normalized_output, DefaultConfig.OUTPUT_FOLDER + "/" 
     # Rules to bear in mind:
         # If there's no modifier before or after a note, it is assumed its duration is 1/4. --- OK
         # If there's a noteHeadHalf before (it's always before) then the duration is 1/2. --- OK
-        # Remove the "beam" element in the scoreParser. --- OK
+        # Remove the "beam" element in the scoreParser.
         # To add up beams, take a peek 4/5 space before and after the current note. See if you can find a run of beams before or after. See if they intersect. Count how many intersect with the note. Divide the duration by 2 for every beam. --- OK
         # Add a mapping that will simply be done AFTER computing the whole spartito to map notes if the key has changed. For example, with gClef we have SI_1. With FClef we have RE_1.
 

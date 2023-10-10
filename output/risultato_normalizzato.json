@@ -43,7 +43,8 @@
                     "center_y": 0.12742,
                     "height": 0.019246,
                     "width": 0.012912
-                }
+                },
+                "tag": "den"
             },
             {
                 "class_id": 20,
@@ -54,7 +55,8 @@
                     "center_y": 0.109073,
                     "height": 0.018774,
                     "width": 0.012374
-                }
+                },
+                "tag": "num"
             },
             {
                 "class_id": 40,
@@ -79,6 +81,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.235269,
@@ -89,9 +94,6 @@
                     "height": 0.059216,
                     "width": 0.01963
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -105,6 +107,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 36,
                 "confidence": 0.249606,
@@ -115,9 +120,6 @@
                     "height": 0.060761,
                     "width": 0.022224
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -164,6 +166,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 34,
                 "confidence": 0.30988,
@@ -174,9 +179,6 @@
                     "height": 0.064032,
                     "width": 0.016837
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -190,6 +192,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 33,
                 "confidence": 0.120045,
@@ -200,9 +205,6 @@
                     "height": 0.067118,
                     "width": 0.022273
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 37,
@@ -260,6 +262,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 31,
                 "confidence": 0.183105,
@@ -270,9 +275,6 @@
                     "height": 0.073341,
                     "width": 0.0203
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -286,6 +288,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 33,
                 "confidence": 0.21601,
@@ -296,9 +301,6 @@
                     "height": 0.07504,
                     "width": 0.02017
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -345,6 +347,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 34,
                 "confidence": 0.177102,
@@ -355,9 +360,6 @@
                     "height": 0.069887,
                     "width": 0.018547
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -371,6 +373,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 35,
                 "confidence": 0.227651,
@@ -381,9 +386,6 @@
                     "height": 0.072193,
                     "width": 0.016885
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -454,6 +456,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.260238,
@@ -464,9 +469,6 @@
                     "height": 0.062661,
                     "width": 0.015974
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -480,6 +482,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 36,
                 "confidence": 0.261949,
@@ -490,9 +495,6 @@
                     "height": 0.057989,
                     "width": 0.018593
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 40,
@@ -539,6 +541,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 34,
                 "confidence": 0.259502,
@@ -549,9 +554,6 @@
                     "height": 0.065978,
                     "width": 0.017967
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -565,6 +567,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 33,
                 "confidence": 0.25188,
@@ -575,9 +580,6 @@
                     "height": 0.071586,
                     "width": 0.021846
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -624,6 +626,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 31,
                 "confidence": 0.250658,
@@ -634,9 +639,6 @@
                     "height": 0.066762,
                     "width": 0.017561
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -650,6 +652,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 33,
                 "confidence": 0.280043,
@@ -660,9 +665,6 @@
                     "height": 0.072686,
                     "width": 0.021281
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -720,6 +722,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 34,
                 "confidence": 0.261258,
@@ -730,9 +735,6 @@
                     "height": 0.076804,
                     "width": 0.019552
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -746,6 +748,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 35,
                 "confidence": 0.233792,
@@ -756,9 +761,6 @@
                     "height": 0.078001,
                     "width": 0.020269
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -838,6 +840,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 38,
                 "confidence": 0.113312,
@@ -848,9 +853,6 @@
                     "height": 0.062986,
                     "width": 0.022037
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -864,6 +866,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 35,
                 "confidence": 0.204038,
@@ -874,9 +879,6 @@
                     "height": 0.071353,
                     "width": 0.022168
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -914,6 +916,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 38,
                 "confidence": 0.152444,
@@ -924,9 +929,6 @@
                     "height": 0.059052,
                     "width": 0.017833
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -940,6 +942,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 39,
                 "confidence": 0.155198,
@@ -950,9 +955,6 @@
                     "height": 0.058213,
                     "width": 0.016325
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -999,6 +1001,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 39,
                 "confidence": 0.105283,
@@ -1009,9 +1014,6 @@
                     "height": 0.069576,
                     "width": 0.020582
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -1025,6 +1027,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 38,
                 "confidence": 0.200236,
@@ -1035,9 +1040,6 @@
                     "height": 0.067679,
                     "width": 0.019849
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -1150,6 +1152,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.136678,
@@ -1160,9 +1165,6 @@
                     "height": 0.071442,
                     "width": 0.020141
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -1176,6 +1178,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 36,
                 "confidence": 0.264177,
@@ -1186,9 +1191,6 @@
                     "height": 0.063601,
                     "width": 0.019447
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -1235,6 +1237,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 34,
                 "confidence": 0.241359,
@@ -1245,9 +1250,6 @@
                     "height": 0.076885,
                     "width": 0.020368
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -1261,6 +1263,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 33,
                 "confidence": 0.25957,
@@ -1271,9 +1276,6 @@
                     "height": 0.076813,
                     "width": 0.022782
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 6,
@@ -1344,6 +1346,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 31,
                 "confidence": 0.298691,
@@ -1354,9 +1359,6 @@
                     "height": 0.06635,
                     "width": 0.01747
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -1370,6 +1372,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 33,
                 "confidence": 0.266315,
@@ -1380,9 +1385,6 @@
                     "height": 0.069362,
                     "width": 0.017774
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 34,
@@ -1429,6 +1431,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 35,
                 "confidence": 0.150161,
@@ -1454,9 +1459,6 @@
                     "height": 0.073,
                     "width": 0.017354
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 10,
@@ -1492,6 +1494,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 38,
                 "confidence": 0.238903,
@@ -1517,9 +1522,6 @@
                     "height": 0.057674,
                     "width": 0.017788
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 38,
@@ -1555,6 +1557,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 38,
                 "confidence": 0.250346,
@@ -1580,9 +1585,6 @@
                     "height": 0.055581,
                     "width": 0.0152
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -1618,6 +1620,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 38,
                 "confidence": 0.233821,
@@ -1645,7 +1650,7 @@
                 }
             },
             {
-                "name": "flag16thUp"
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -1658,9 +1663,6 @@
                     "height": 0.058431,
                     "width": 0.017179
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 37,
@@ -1683,6 +1685,9 @@
                     "height": 0.026631,
                     "width": 0.007817
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -1725,9 +1730,6 @@
                     "height": 0.066945,
                     "width": 0.017772
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 10,
@@ -1807,6 +1809,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.244853,
@@ -1817,9 +1822,6 @@
                     "height": 0.052948,
                     "width": 0.018378
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -1833,6 +1835,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 40,
                 "confidence": 0.192849,
@@ -1843,9 +1848,6 @@
                     "height": 0.058724,
                     "width": 0.016847
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -1870,6 +1872,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.243374,
@@ -1882,9 +1887,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.223158,
                 "name": "augmentationDot",
@@ -1894,6 +1896,9 @@
                     "height": 0.00342,
                     "width": 0.002996
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -1908,9 +1913,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 38,
                 "confidence": 0.270537,
                 "name": "SOL_1",
@@ -1920,6 +1922,9 @@
                     "height": 0.053116,
                     "width": 0.017841
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -1934,9 +1939,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 3,
                 "confidence": 0.312168,
                 "name": "keySharp",
@@ -1946,6 +1948,9 @@
                     "height": 0.029216,
                     "width": 0.009065
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -1958,9 +1963,6 @@
                     "height": 0.05708,
                     "width": 0.017389
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -1998,6 +2000,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 38,
                 "confidence": 0.270763,
@@ -2010,9 +2015,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.15065,
                 "name": "augmentationDot",
@@ -2022,6 +2024,9 @@
                     "height": 0.00393,
                     "width": 0.002842
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2036,9 +2041,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 38,
                 "confidence": 0.256417,
                 "name": "SOL_1",
@@ -2048,6 +2050,9 @@
                     "height": 0.056109,
                     "width": 0.018117
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -2062,9 +2067,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.307877,
                 "name": "augmentationDot",
@@ -2074,6 +2076,9 @@
                     "height": 0.003332,
                     "width": 0.002848
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2086,9 +2091,6 @@
                     "height": 0.063305,
                     "width": 0.016945
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -2113,6 +2115,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.257484,
@@ -2125,9 +2130,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.318533,
                 "name": "augmentationDot",
@@ -2137,6 +2139,9 @@
                     "height": 0.003384,
                     "width": 0.003013
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2151,9 +2156,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 35,
                 "confidence": 0.261387,
                 "name": "LA_1",
@@ -2163,6 +2165,9 @@
                     "height": 0.064234,
                     "width": 0.02047
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -2177,9 +2182,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.286596,
                 "name": "augmentationDot",
@@ -2189,6 +2191,9 @@
                     "height": 0.003552,
                     "width": 0.002906
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2201,9 +2206,6 @@
                     "height": 0.063758,
                     "width": 0.019002
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -2228,6 +2230,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.150352,
@@ -2238,9 +2243,6 @@
                     "height": 0.063451,
                     "width": 0.017178
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -2254,6 +2256,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.205507,
@@ -2264,9 +2269,6 @@
                     "height": 0.062738,
                     "width": 0.017195
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 37,
@@ -2291,6 +2293,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.189714,
@@ -2301,9 +2306,6 @@
                     "height": 0.061753,
                     "width": 0.016084
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -2328,6 +2330,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 41,
                 "confidence": 0.199722,
@@ -2338,9 +2343,6 @@
                     "height": 0.070411,
                     "width": 0.019163
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -2365,6 +2367,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.222457,
@@ -2375,9 +2380,6 @@
                     "height": 0.063361,
                     "width": 0.019704
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -2391,6 +2393,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 39,
                 "confidence": 0.127628,
@@ -2401,9 +2406,6 @@
                     "height": 0.057444,
                     "width": 0.016606
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 39,
@@ -2439,6 +2441,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.1504,
@@ -2449,9 +2454,6 @@
                     "height": 0.058629,
                     "width": 0.020669
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 10,
@@ -2476,6 +2478,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 39,
                 "confidence": 0.268017,
@@ -2488,9 +2493,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.200221,
                 "name": "augmentationDot",
@@ -2500,6 +2502,9 @@
                     "height": 0.003688,
                     "width": 0.00302
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2514,9 +2519,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 31,
                 "confidence": 0.27295,
                 "name": "RE_2",
@@ -2526,6 +2528,9 @@
                     "height": 0.057614,
                     "width": 0.018243
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -2540,9 +2545,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.325117,
                 "name": "augmentationDot",
@@ -2552,6 +2554,9 @@
                     "height": 0.003342,
                     "width": 0.003197
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2564,9 +2569,6 @@
                     "height": 0.057352,
                     "width": 0.016201
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -2604,6 +2606,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 34,
                 "confidence": 0.27027,
@@ -2616,7 +2621,7 @@
                 }
             },
             {
-                "name": "flag8thUp"
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2631,9 +2636,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 38,
                 "confidence": 0.212461,
                 "name": "SOL_1",
@@ -2643,6 +2645,9 @@
                     "height": 0.058115,
                     "width": 0.019509
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -2657,9 +2662,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.127491,
                 "name": "augmentationDot",
@@ -2669,6 +2671,9 @@
                     "height": 0.003624,
                     "width": 0.002529
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -2681,9 +2686,6 @@
                     "height": 0.059154,
                     "width": 0.016981
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -2763,6 +2765,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.263843,
@@ -2773,9 +2778,6 @@
                     "height": 0.055472,
                     "width": 0.017641
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -2800,6 +2802,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 40,
                 "confidence": 0.233863,
@@ -2810,9 +2815,6 @@
                     "height": 0.055733,
                     "width": 0.014628
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -2837,6 +2839,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.248004,
@@ -2847,9 +2852,6 @@
                     "height": 0.058214,
                     "width": 0.017621
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -2863,6 +2865,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 36,
                 "confidence": 0.234872,
@@ -2873,9 +2878,6 @@
                     "height": 0.059359,
                     "width": 0.018274
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 37,
@@ -2900,6 +2902,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.215246,
@@ -2910,9 +2915,6 @@
                     "height": 0.059256,
                     "width": 0.017414
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -2926,6 +2928,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 41,
                 "confidence": 0.236422,
@@ -2936,9 +2941,6 @@
                     "height": 0.061646,
                     "width": 0.019529
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -2963,6 +2965,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 40,
                 "confidence": 0.24416,
@@ -2975,9 +2980,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.311861,
                 "name": "augmentationDot",
@@ -2987,6 +2989,9 @@
                     "height": 0.003707,
                     "width": 0.003271
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3001,9 +3006,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 36,
                 "confidence": 0.280385,
                 "name": "MI_1",
@@ -3013,6 +3015,9 @@
                     "height": 0.057101,
                     "width": 0.022005
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -3027,9 +3032,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 3,
                 "confidence": 0.308916,
                 "name": "keySharp",
@@ -3039,6 +3041,9 @@
                     "height": 0.025414,
                     "width": 0.008402
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3051,9 +3056,6 @@
                     "height": 0.060928,
                     "width": 0.01547
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -3078,6 +3080,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.264772,
@@ -3090,9 +3095,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.257998,
                 "name": "augmentationDot",
@@ -3102,6 +3104,9 @@
                     "height": 0.003973,
                     "width": 0.00312
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3116,9 +3121,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 36,
                 "confidence": 0.286597,
                 "name": "MI_1",
@@ -3128,6 +3130,9 @@
                     "height": 0.057921,
                     "width": 0.020189
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -3142,9 +3147,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.335559,
                 "name": "augmentationDot",
@@ -3154,6 +3156,9 @@
                     "height": 0.003899,
                     "width": 0.003646
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3166,9 +3171,6 @@
                     "height": 0.06717,
                     "width": 0.019957
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -3261,6 +3263,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.264039,
@@ -3271,9 +3276,6 @@
                     "height": 0.055812,
                     "width": 0.02146
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -3287,6 +3289,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 40,
                 "confidence": 0.255235,
@@ -3297,9 +3302,6 @@
                     "height": 0.053599,
                     "width": 0.017436
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -3324,6 +3326,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 36,
                 "confidence": 0.265687,
@@ -3334,9 +3339,6 @@
                     "height": 0.0594,
                     "width": 0.019198
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -3350,6 +3352,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 38,
                 "confidence": 0.170142,
@@ -3360,9 +3365,6 @@
                     "height": 0.059144,
                     "width": 0.020471
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 38,
@@ -3387,6 +3389,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 39,
                 "confidence": 0.23547,
@@ -3397,9 +3402,6 @@
                     "height": 0.061255,
                     "width": 0.018241
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 7,
@@ -3413,6 +3415,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 38,
                 "confidence": 0.249375,
@@ -3423,9 +3428,6 @@
                     "height": 0.056902,
                     "width": 0.017169
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -3450,6 +3452,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 35,
                 "confidence": 0.240184,
@@ -3462,9 +3467,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.325328,
                 "name": "augmentationDot",
@@ -3474,6 +3476,9 @@
                     "height": 0.003845,
                     "width": 0.003218
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3488,7 +3493,7 @@
                 }
             },
             {
-                "name": "flag16thUp"
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -3501,9 +3506,6 @@
                     "height": 0.058313,
                     "width": 0.018259
                 }
-            },
-            {
-                "name": "flag8thUp"
             },
             {
                 "class_id": 37,
@@ -3528,6 +3530,9 @@
                 }
             },
             {
+                "name": "flag16thUp"
+            },
+            {
                 "beams": 2,
                 "class_id": 34,
                 "confidence": 0.248347,
@@ -3540,7 +3545,7 @@
                 }
             },
             {
-                "name": "flag16thUp"
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -3555,9 +3560,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.31708,
                 "name": "augmentationDot",
@@ -3567,6 +3569,9 @@
                     "height": 0.003656,
                     "width": 0.00341
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3579,9 +3584,6 @@
                     "height": 0.06841,
                     "width": 0.017919
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
@@ -3606,6 +3608,9 @@
                 }
             },
             {
+                "name": "flag8thUp"
+            },
+            {
                 "beams": 1,
                 "class_id": 32,
                 "confidence": 0.29693,
@@ -3618,9 +3623,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.34257,
                 "name": "augmentationDot",
@@ -3630,6 +3632,9 @@
                     "height": 0.003702,
                     "width": 0.003376
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3644,9 +3649,6 @@
                 }
             },
             {
-                "name": "flag16thUp"
-            },
-            {
                 "class_id": 31,
                 "confidence": 0.295648,
                 "name": "RE_2",
@@ -3656,6 +3658,9 @@
                     "height": 0.053463,
                     "width": 0.018001
                 }
+            },
+            {
+                "name": "flag8thUp"
             },
             {
                 "beams": 1,
@@ -3670,9 +3675,6 @@
                 }
             },
             {
-                "name": "flag8thUp"
-            },
-            {
                 "class_id": 7,
                 "confidence": 0.152066,
                 "name": "augmentationDot",
@@ -3682,6 +3684,9 @@
                     "height": 0.003172,
                     "width": 0.003124
                 }
+            },
+            {
+                "name": "flag16thUp"
             },
             {
                 "beams": 2,
@@ -3694,9 +3699,6 @@
                     "height": 0.055569,
                     "width": 0.017563
                 }
-            },
-            {
-                "name": "flag16thUp"
             },
             {
                 "class_id": 10,
