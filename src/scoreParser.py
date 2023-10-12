@@ -1,6 +1,5 @@
 import json
 from typing import List
-from enum import Enum
 from pymusicxml import *
 
 timeSignatures: List[str] = ['timeSig6', 'timeSig8', 'timeSig3', 'timeSig4',
