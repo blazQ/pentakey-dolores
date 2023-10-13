@@ -146,10 +146,14 @@ def tagTimeSign(beams_cleaned_output):
                                 # Returns true if element is higher than suspect
                                 if element_higher(element, suspect):
                                     element['tag'] = 'num'
+                                    element['name'] += '-num'
                                     suspect['tag'] = 'den'
+                                    suspect['name'] += '-den'
                                 else:
                                     element['tag'] = 'den'
+                                    element['name'] += '-den'
                                     suspect['tag'] = 'num'
+                                    suspect['name'] += '-num'
 
 
 

@@ -29,7 +29,7 @@ class ScoreElement(object):
 
     @classmethod
     def typeOf(cls, asString: str):
-        if asString in timeSignatures:
+        if asString in timeSignatures or asString.split('-')[0] in timeSignatures: # dirty workaround
             return ScoreTypes.timeSignature
         elif asString in notes:
             return ScoreTypes.note
@@ -46,11 +46,11 @@ class ScoreElement(object):
         elif asString in others:
             return ScoreTypes.other
         else:
-            raise Exception('Element not recognized')
+            raise Exception('Element not recognized - ', asString)
 
     @classmethod
     def initScoreElement(cls, asString: str):
-        if asString in timeSignatures:
+        if asString in timeSignatures or asString.split('-')[0] in timeSignatures: # dirty workaround
             return MyTimeSignature(asString)
         elif asString in notes:
             return MyNote(asString)
@@ -67,7 +67,7 @@ class ScoreElement(object):
         elif asString in others:
             return MyOther(asString)
         else:
-            raise Exception('Element not recognized')
+            raise Exception('Element not recognized - ', asString)
 
 
 class MyTimeSignature(ScoreElement):
@@ -77,7 +77,8 @@ class MyTimeSignature(ScoreElement):
             pass  # Nothing more to do
         else:
             try:
-                self.duration: int = int(asString.split('timeSig')[1])
+                self.duration: int = int(asString.split('timeSig')[1].split('-')[0])
+                self.tag: str = asString.split('-')[1] #num or den
             except:
                 raise TypeError('Time Signature not recognized')
 
@@ -217,10 +218,10 @@ if __name__ == "__main__":
         allElementsAsStrings = [element['name'] for line in data for element in line]  # Python's crazy
 
     # Create new measure
-    # TODO handle TS
+    # Arbitray values for TS and Key, but we need them to have properties to modify while we read the Score from the .json
     measure: Measure = Measure(time_signature=(3, 4), key=0)
 
-    # Duration if needed
+    # Logic to determine if duration changing is needed
     duration: Duration = None
     changeDurationSemaphore: bool = False
 
@@ -230,7 +231,17 @@ if __name__ == "__main__":
         try:
             durationalObject = scoreElementToDurationalObject(scoreElement)
             if isinstance(durationalObject, Clef):
-                measure.clef = durationalObject
+                # measures.append(measure)
+                # newMeasure: Measure = Measure(time_signature=measure.time_signature, key=measure.key)
+                # measure = newMeasure
+                # measure.clef = durationalObject
+                try:
+                    if measure.clef.pitch == durationalObject.pitch and measure.clef.line == durationalObject.line:
+                        pass
+                    else:
+                        measure.clef = durationalObject
+                except AttributeError:
+                    pass
                 continue
             elif isinstance(durationalObject, Duration):
                 duration = durationalObject
@@ -241,13 +252,13 @@ if __name__ == "__main__":
                 changeDurationSemaphore = False
             measure.append(durationalObject)
         except DurationalObjectMappingNotFound:
-            print(scoreElement.asString, " - ", scoreElement.type)
+            # print(scoreElement.asString, " - ", scoreElement.type)
             if scoreElement.type == ScoreTypes.other:
                 if scoreElement.asString == 'barlineSingle':
                     # Add actual measure to the measures list
                     measures.append(measure)
                     # Finish actual measure and start a new one - with the same TS and Key as the previous one
-                    newMeasure: Measure = Measure(time_signature=measure.time_signature, key=measure.key)
+                    newMeasure: Measure = Measure()
                     measure = newMeasure
                 elif scoreElement.asString == 'brace':
                     pass
@@ -261,13 +272,16 @@ if __name__ == "__main__":
                         measure.contents[-1].pitch.alteration += 1
                     except IndexError:
                         # It's a key signature
-                        measure.key += 1
+                        try:
+                            measure.key += 1
+                        except TypeError:
+                            continue
                 elif scoreElement.asString == 'keyNatural':
                     try:
                         measure.contents[-1].pitch.alteration = 0
                     except IndexError:
                         # It's a key signature
-                        measure.key = 0 # is this really possible?
+                        measure.key = 0
                 elif scoreElement.asString == 'keyFlat':
                     try:
                         measure.contents[-1].pitch.alteration -= 1
@@ -281,8 +295,14 @@ if __name__ == "__main__":
                         # It's a key signature
                         measure.key += 2
             elif scoreElement.type == ScoreTypes.timeSignature:
-                # TODO
-                pass
+                try:
+                    actualTimeSignature: tuple = measure.time_signature
+                    if scoreElement.tag == 'num':
+                        measure.time_signature = (scoreElement.duration, actualTimeSignature[1])
+                    elif scoreElement.tag == 'den':
+                        measure.time_signature = (actualTimeSignature[0], scoreElement.duration)
+                except AttributeError:
+                    continue
             elif scoreElement.type == ScoreTypes.meta:
                 pass
 
@@ -294,8 +314,8 @@ if __name__ == "__main__":
             # Clefs --- OK
             # Barline --- OK
 
-
-    score.parts[0].extend(measures)
+    filteredMeasures = [m for m in measures if len(m.contents)!=0]
+    score.parts[0].extend(filteredMeasures)
 
     ########################
 
@@ -310,7 +330,7 @@ if __name__ == "__main__":
     # score.parts[0].extend(measures)
 
     # Export score
-    score.export_to_file("./tmp/TestScore.musicxml")
+    score.export_to_file("./output/TestScore.musicxml")
 
 
 

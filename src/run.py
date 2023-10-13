@@ -4,7 +4,7 @@ from config import DefaultConfig
 
 # Run pentakey_adapter.py
 pentakey_script = os.path.join("src", "pentakey_adapter.py")
-pentakey_command = ['python', pentakey_script]
+pentakey_command = ['python3', pentakey_script]
 
 try:
     subprocess.run(pentakey_command, check=True)
@@ -13,7 +13,16 @@ except subprocess.CalledProcessError:
 
 # Run scoreParser.py
 score_parser_script = os.path.join("src", "scoreParser.py")
-score_parser_command = ['python', score_parser_script]
+score_parser_command = ['python3', score_parser_script]
+
+try:
+    subprocess.run(score_parser_command, check=True)
+except subprocess.CalledProcessError:
+    print(f"Error during the execution of {score_parser_script}")
+
+# Run pitchToUpperCase.py
+score_parser_script = os.path.join("src", "pitchToUpperCase.py")
+score_parser_command = ['python3', score_parser_script]
 
 try:
     subprocess.run(score_parser_command, check=True)
