@@ -12,7 +12,7 @@ A very simple python tool for converting sheet music into musicXML format.
 ## Abstract
 
 This projects build a MXML parser, using a neural network previously trained by University of Salerno students.
-More details on the subject can be found in the reference folder, with the [referenced thesis](./references/PentaKey_Tesi.pdf).
+More details on the subject can be found in the reference folder, with the [referenced thesis](./docs/PentaKey_Tesi.pdf).
 
 The neural network exploits YoloV3 which is a real time object detection algorithm employed by open source tools like Darknet, which was used in order to train the model to recognize various musical notation elements in order to reconstruct, based on a clear musical sheet image, a musicXML equivalent of the composition, that can then be used by other tools, like MuseScore, to aid in various tasks related to composition and execution of musical scores.
 
@@ -23,6 +23,7 @@ This project is meant to be a prototype, defining a simple way to approach the r
 The project is mainly written in Python, and uses a library, [pymusicxml](https://github.com/MarcTheSpark/pymusicxml) that makes it easier to build a mxml file.
 
 It also features a [jupyter notebook](./notebooks/pentakey_dolores.ipynb) which can be imported in colab in order to use the model.
+If you don't want to bother going all the way and training the model from scratch, you can use pre-trained weights and skip the relevant points.
 The notebook explains how to train the neural net based on the instructions left by the thesis' authors, and how to fetch the results, by using [Darknet](https://pjreddie.com/darknet/).
 
 Once the results are available, using the code in this repository we can execute a series of scripts which will:
