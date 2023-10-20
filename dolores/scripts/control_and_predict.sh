@@ -1,0 +1,2 @@
+!./darknet detector map data/obj.data cfg/yolov3-spp.cfg backup/yolov3-spp_final.weights
+!./darknet detector test data/obj.data cfg/yolov3-spp.cfg /content/gdrive/MyDrive/ASMC/PentaKey/PentaKey/yolov3-spp_final.weights data/img/fratelli_d_italia.png -thresh 0.1 -out risultato.json
