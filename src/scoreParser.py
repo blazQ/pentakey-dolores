@@ -162,10 +162,6 @@ class MyOther(ScoreElement):
         super().__init__(ScoreTypes.other, asString)
 
 
-class ScoreElementNotFoundInLine(Exception):
-    pass
-
-
 class DurationalObjectMappingNotFound(Exception):
     pass
 
@@ -231,10 +227,6 @@ if __name__ == "__main__":
         try:
             durationalObject = scoreElementToDurationalObject(scoreElement)
             if isinstance(durationalObject, Clef):
-                # measures.append(measure)
-                # newMeasure: Measure = Measure(time_signature=measure.time_signature, key=measure.key)
-                # measure = newMeasure
-                # measure.clef = durationalObject
                 try:
                     if measure.clef.pitch == durationalObject.pitch and measure.clef.line == durationalObject.line:
                         pass
@@ -252,12 +244,11 @@ if __name__ == "__main__":
                 changeDurationSemaphore = False
             measure.append(durationalObject)
         except DurationalObjectMappingNotFound:
-            # print(scoreElement.asString, " - ", scoreElement.type)
             if scoreElement.type == ScoreTypes.other:
                 if scoreElement.asString == 'barlineSingle':
                     # Add actual measure to the measures list
                     measures.append(measure)
-                    # Finish actual measure and start a new one - with the same TS and Key as the previous one
+                    # Finish actual measure and start a new one - no TS and Key 'cause otherwise they'll be displayed and we don't need this
                     newMeasure: Measure = Measure()
                     measure = newMeasure
                 elif scoreElement.asString == 'brace':
@@ -306,37 +297,8 @@ if __name__ == "__main__":
             elif scoreElement.type == ScoreTypes.meta:
                 pass
 
-        # TTH:
-            # Time signature (to specify to each measure)
-            # Key signatures (alterations after the clef) --- OK
-            # Time modifiers --- OK
-            # Pitch modifiers --- OK
-            # Clefs --- OK
-            # Barline --- OK
-
     filteredMeasures = [m for m in measures if len(m.contents)!=0]
     score.parts[0].extend(filteredMeasures)
 
-    ########################
-
-    # Add all elements to measure
-    # This will be a for in
-    # measure.append(Note('c', 'whole'))
-
-    # Add measure to measures list
-    # measures.append(measure)
-
-    # Add measures to part
-    # score.parts[0].extend(measures)
-
     # Export score
     score.export_to_file("./output/TestScore.musicxml")
-
-
-
-# TODO:
-'''
-    To wrap this up:
-    - We need to create a final script in the main folder that executes pentakey_adapter and then scoreParser.
-    - We need to write a convincing README, where we detail how to use the supplied notebook and where to download the weights and dataset.
-'''
