@@ -4,6 +4,7 @@
   - [Abstract](#abstract)
   - [Requirements](#requirements)
   - [How to use it](#how-to-use-it)
+  - [How it works](#how-it-works)
   - [What's left to improve it](#whats-left-to-improve-it)
 
 Project for the Algorithmic Music and Sound Computing course at the University of Salerno.
@@ -43,7 +44,8 @@ python3 ./src/run.py
 
 And you'll find the result in the output folder.
 
-## scoreParser.py
+## How it works
+### scoreParser.py
 
 This script defines classes and functions to map simple strings - found in the model's prediction output - to MusicXML elements (specifically using the pymusicxml library) and build a musical score in the form a .musicxml file.
 
