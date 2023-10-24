@@ -5,6 +5,8 @@
   - [Requirements](#requirements)
   - [How to use it](#how-to-use-it)
   - [How it works](#how-it-works)
+    - [pentakey\_adapter.py](#pentakey_adapterpy)
+    - [scoreParser.py](#scoreparserpy)
   - [What's left to improve it](#whats-left-to-improve-it)
 
 Project for the Algorithmic Music and Sound Computing course at the University of Salerno.
@@ -45,6 +47,44 @@ python3 ./src/run.py
 And you'll find the result in the output folder.
 
 ## How it works
+
+### pentakey_adapter.py
+
+This script defines a series of steps required in order to rearrange and make sense of the neural net's json output.
+
+It basically reads a json file, currently from the input folder, with the get_arranged_output function.
+This function opens the file, and iterates on the entries in the resulting python dictionary.
+
+The first thing it does, it gets all of the SCORE elements described in the model.
+
+The reason we do this is that all of the notes are contained in this element, and there's one for each row of the musical score image.
+
+By getting the scores, we basically know how big each section of the musical sheet paper is.
+
+We then proceed in reordering every score depending on the y axis. (Obviously the scores which are higher on paper have a smaller center y coordinate)
+This is done in order to establish a precedence which is used to rearrange all of the elements in the following sections.
+
+Then, for every score, we iterate through the model's output and we add, for each score's sublists, all of the elements which fall within the score's bounding boxes.
+This is done wih simple math, by checking if the y coordinate of the object falls within the score's bboxes.
+Then, after every object has been put in the right "bucket", we proceed in sorting them by x coordinate, declaring who comes first and who comes second for each row.
+
+At the end, we append every sublist to the arranged output list of lists, which reeturns an arranged, "normalized" list of lists containing a list for each score, each of them containing musical notation elements.
+
+This is not the only thing we must do. In particular, for the currently used neural net, we need to normalize durations.
+
+In short, sometimes the model will insert durations after the note. Sometimes it will insert them before the notes. And sometimes the duration will not be explicitly stated, but needs to be deduced from the position of the note inside a beam.
+
+The rule is pretty simple: for every beam the note is contained in, the standard duration (1/4) gets halved.
+
+We could also approach the problem in the opposite way, by deducing the duration further down the pipeline, in the parser, and keeping the beams tangled. To avoid complicating the parser logic, since this is meant to be a first approach and part of the parser was already written, we decided to untangle the beams right now. But it must be noted that this is also a valid approach, that could avoid us losing beam information.
+
+Modifying the logic in case something needs to be added should be pretty simple: avoid removing the beam information in the normalize_durations function and discover a new way to implement it in the parser.
+
+Anyway, after the durations for every node are inserted and the beams are removed from the equation, we only need to tag the time signature.
+The model doesn't immediately recognize which is the numerator and which is the denominator, so by simply viewing whose center y is higher we tag each timesign element with its correct position in the fraction, so the parser simply needs to read this information.
+
+Then, the output gets saved in a json file, ready to be interpreted by the parser.
+
 ### scoreParser.py
 
 This script defines classes and functions to map simple strings - found in the model's prediction output - to MusicXML elements (specifically using the pymusicxml library) and build a musical score in the form a .musicxml file.
@@ -68,3 +108,5 @@ Clearly the model itself could benefit from additional training and a definition
 The code itself also tries to solve some problems in the class hierarchy by reasoning strictly in geometrical terms on the placement of objects, but a more fleshed out class system could also lower the amount of effort required in normalizing the output, possibly yielding better results.
 
 Also, it's still somewhat cumbersome to use, and could benefit from a simpler way of tying everything together by having a complete application which could call the model, available for example as an API, parse the results and directly printing them instead of going all the way through the notebook and then going back to the code.
+
+Currently we are developing a simple service integration using Django, which could make it possible to install all the required dependencies on a machine and then simply using exposed API methods, to simplify user interaction.
