@@ -1,4 +1,6 @@
 import json
+import os
+import xml.etree.ElementTree as ET
 from typing import List
 from pymusicxml import *
 
@@ -308,5 +310,25 @@ if __name__ == "__main__":
         # Find name
         filename = data['filename'].split('/')[-1].split('.')[0]
         
-        # Export score
-        score.export_to_file(f"/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/{filename}.musicxml")
+        # Determining file path
+        xml_file_path = f"/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/{filename}.musicxml"
+        # Exporting score
+        
+        score.export_to_file(xml_file_path)
+        
+        # Pitching to upper case
+        tree = ET.parse(xml_file_path)
+        root = tree.getroot()
+
+        def convert_note_to_uppercase(note):
+            if note.text is not None:
+                note.text = note.text.upper()
+
+        for note in root.findall(".//note"):
+            if note.find(".//step") is not None:
+                convert_note_to_uppercase(note.find(".//step"))
+        
+        # Saving modifications in the same file
+        tree.write(xml_file_path)
+
+        

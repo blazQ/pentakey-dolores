@@ -21,10 +21,6 @@ try:
 except subprocess.CalledProcessError:
     print(f"Error during the execution of {score_parser_script}")
 
-# Run pitchToUpperCase.py
-score_parser_script = "src/pitchToUpperCase.py" #os.path.join("pentakey/src", "pitchToUpperCase.py")
-score_parser_command = ['python3', score_parser_script]
-
 try:
     subprocess.run(score_parser_command, check=True)
 except subprocess.CalledProcessError:
@@ -43,3 +39,5 @@ if os.path.exists(result_path):
         print(f"Error while deleting {result_file}: {str(e)}")
 else:
     print(f"{result_file} not found in the output folder")
+    
+# Delete bad list

@@ -127,3 +127,10 @@ cython_debug/
 
 # OS
 .DS_Store
+
+#
+bad.list
+*.txt
+*.png
+*.musicxml
+pentakey/bad.list
