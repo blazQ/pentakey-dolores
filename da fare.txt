@@ -1,0 +1,5 @@
+sudo docker run --runtime=nvidia --rm -v /home/musimathicslab/Scrivania/CacciaNegriRapa/darknet:/darknet -w /darknet -it daisukekobayashi/darknet:gpu-cv-cc86 darknet detector test data/obj.data yolov3-spp.cfg yolov3-spp_final.weights data/img/aria_italiana.png -thresh 0.1 -out risultato.json
+impostare docker senza sudo
+serve un modo per prendere i risultati dal container docker visto che esce immediatamente
+
+"darknet detector test /home/musimathicslab/Scrivania/CacciaNegriRapa/darknet/data/obj.data /home/musimathicslab/Scrivania/CacciaNegriRapa/darknet/cfg/yolov3-spp.cfg /home/musimathicslab/Scrivania/CacciaNegriRapa/darknet/yolov3-spp_final.weights" + image_path + "-thresh 0.1 -out risultato.json"
