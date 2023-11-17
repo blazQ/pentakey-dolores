@@ -134,3 +134,4 @@ bad.list
 *.png
 *.musicxml
 pentakey/bad.list
+*/*/__pycache__

@@ -12,14 +12,38 @@ from django.shortcuts import redirect
 from django.http import FileResponse
 
 
+def get_darknet_path():
+    current_path = os.getcwd()
+    parent_directory = os.path.abspath(os.path.join(current_path, ".."))
+    root_directory = os.path.abspath(os.path.join(parent_directory, ".."))
+    darknet_path = os.path.abspath(os.path.join(root_directory, "darknet"))
+    return darknet_path
+
+def get_results_path():
+    current_path = os.getcwd()
+    parent_directory = os.path.abspath(os.path.join(current_path, ".."))
+    results_path = os.path.abspath(os.path.join(parent_directory, "src/results"))
+    return results_path
+
+def get_src_path():
+    current_path = os.getcwd()
+    parent_directory = os.path.abspath(os.path.join(current_path, ".."))
+    src_path = os.path.abspath(os.path.join(parent_directory, "src"))
+    return src_path
+
+
+
 def upload_spartito(request):
     if request.method == 'POST':
         form = SpartitoForm(request.POST, request.FILES)
         if form.is_valid():
             spartito = form.save()
             image_path = spartito.spartito_image.path
-            darknet_path = '/home/musimathicslab/Scrivania/CacciaNegriRapa/darknet/darknet'
-            darknet_command = f'{darknet_path} detector test /home/musimathicslab/Scrivania/CacciaNegriRapa/darknet/data/obj.data /home/musimathicslab/Scrivania/CacciaNegriRapa/darknet/yolov3-spp.cfg /home/musimathicslab/Scrivania/CacciaNegriRapa/darknet/yolov3-spp_final.weights {image_path} -thresh 0.1 -out risultato.json'
+            darknet_path = get_darknet_path()
+
+            # I improved the code, but it would still benefit from os.abspatthing even these ones
+            darknet_exec_path = f'{darknet_path}/darknet'
+            darknet_command = f'{darknet_exec_path} detector test {darknet_path}/data/obj.data {darknet_path}/yolov3-spp.cfg {darknet_path}/yolov3-spp_final.weights {image_path} -thresh 0.1 -out risultato.json'
             result = subprocess.run(darknet_command, shell=True, capture_output=True, text=True)
 
             if result.returncode == 0:
@@ -30,13 +54,15 @@ def upload_spartito(request):
                 spartito.riconoscimento = riconoscimento
                 spartito.save()
 
-                shutil.move('risultato.json', '/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/risultato.json')
-                shutil.move('predictions.jpg', '/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/predictions.jpg')
+                results_folder = get_results_path()
+                shutil.move('risultato.json', f'{results_folder}/risultato.json')
+                shutil.move('predictions.jpg', f'{results_folder}/predictions.jpg')
 
-                subprocess.run("/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/run.py", capture_output=True)
-                
+                src_folder = get_src_path()
+                subprocess.run(f'{src_folder}/run.py', capture_output=True)
+
                 request.session['image_name'] = image_path.split('/')[-1]
-                
+
                 return redirect("download_file")
 
             else:
@@ -57,7 +83,8 @@ def accesso_pagina_upload(request):
 
 def download_file(request):
     image_name = request.session.get('image_name').split('.')[0]
-    file_path = f"/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/{image_name}.musicxml"
+    results_path = get_results_path()
+    file_path = f"{results_path}/{image_name}.musicxml"
     file_name = f"{image_name}.musicxml"
     file = open(file_path, 'rb')
     response = FileResponse(file)

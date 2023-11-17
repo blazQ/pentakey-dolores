@@ -1,5 +1,6 @@
 import json
 import os
+from config import DefaultConfig
 import xml.etree.ElementTree as ET
 from typing import List
 from pymusicxml import *
@@ -208,7 +209,7 @@ if __name__ == "__main__":
     allElementsAsStrings: [str] = []
 
     # Open file
-    with open('/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/risultato_normalizzato.json') as f:
+    with open(f'{DefaultConfig.RESULTS_PATH}/{DefaultConfig.OUTPUT_NORMALIZED_FILE}') as f:
         # Parse JSON
         data = json.load(f)[0]
 
@@ -303,19 +304,19 @@ if __name__ == "__main__":
     score.parts[0].extend(filteredMeasures)
 
     # Open file to capture name
-    with open('/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/risultato.json') as f:
+    with open(f'{DefaultConfig.RESULTS_PATH}/{DefaultConfig.INPUT_FILE}') as f:
         # Parse JSON
         data = json.load(f)[0]
 
         # Find name
         filename = data['filename'].split('/')[-1].split('.')[0]
-        
+
         # Determining file path
-        xml_file_path = f"/home/musimathicslab/Scrivania/CacciaNegriRapa/pentakey/src/results/{filename}.musicxml"
+        xml_file_path = f"{DefaultConfig.RESULTS_PATH}/{filename}.musicxml"
         # Exporting score
-        
+
         score.export_to_file(xml_file_path)
-        
+
         # Pitching to upper case
         tree = ET.parse(xml_file_path)
         root = tree.getroot()
@@ -327,8 +328,8 @@ if __name__ == "__main__":
         for note in root.findall(".//note"):
             if note.find(".//step") is not None:
                 convert_note_to_uppercase(note.find(".//step"))
-        
+
         # Saving modifications in the same file
         tree.write(xml_file_path)
 
-        
+
