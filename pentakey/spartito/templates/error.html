@@ -5,30 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Errore</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            text-align: center;
-        }
-
-        h1 {
-            color: #e74c3c;
-        }
-
-        p {
-            color: #555;
-        }
-
-        .sad-emoticon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/error_styles.css' %}">
 </head>
 <body>
-    <div class="sad-emoticon">😢</div>
-    <h1>Errore</h1>
+    <h1>😢 Errore</h1>
     <p>C'è stato un errore durante il processo di riconoscimento. Per favore, riprova o contatta il supporto.</p>
 </body>
 </html>

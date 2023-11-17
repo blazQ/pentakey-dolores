@@ -1,0 +1,18 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+h1 {
+    color: #e74c3c;
+}
+
+p {
+    color: #555;
+}
+
+.sad-emoticon {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
