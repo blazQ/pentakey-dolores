@@ -161,7 +161,9 @@ def write_output(arranged_output, file_name):
     with open(file_name, 'w') as out:
         json.dump(arranged_output, out)
 
+
 arranged_output = get_arranged_output(DefaultConfig.INPUT_FOLDER + "/" + DefaultConfig.INPUT_FILE)
+print(DefaultConfig.INPUT_FOLDER + "/" + DefaultConfig.INPUT_FILE)
 beams_cleaned_normalized_output = normalize_durations(arranged_output)
 tagTimeSign(beams_cleaned_normalized_output)
 write_output(beams_cleaned_normalized_output, DefaultConfig.OUTPUT_FOLDER + "/" + DefaultConfig.OUTPUT_NORMALIZED_FILE)

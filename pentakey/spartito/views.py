@@ -15,20 +15,17 @@ from django.http import FileResponse
 def get_darknet_path():
     current_path = os.getcwd()
     parent_directory = os.path.abspath(os.path.join(current_path, ".."))
-    root_directory = os.path.abspath(os.path.join(parent_directory, ".."))
-    darknet_path = os.path.abspath(os.path.join(root_directory, "darknet"))
+    darknet_path = os.path.abspath(os.path.join(parent_directory, "darknet"))
     return darknet_path
 
 def get_results_path():
     current_path = os.getcwd()
-    parent_directory = os.path.abspath(os.path.join(current_path, ".."))
-    results_path = os.path.abspath(os.path.join(parent_directory, "src/results"))
+    results_path = os.path.abspath(os.path.join(current_path, "src/results"))
     return results_path
 
 def get_src_path():
     current_path = os.getcwd()
-    parent_directory = os.path.abspath(os.path.join(current_path, ".."))
-    src_path = os.path.abspath(os.path.join(parent_directory, "src"))
+    src_path = os.path.abspath(os.path.join(current_path, "src"))
     return src_path
 
 
@@ -45,6 +42,8 @@ def upload_spartito(request):
             darknet_exec_path = f'{darknet_path}/darknet'
             darknet_command = f'{darknet_exec_path} detector test {darknet_path}/data/obj.data {darknet_path}/yolov3-spp.cfg {darknet_path}/yolov3-spp_final.weights {image_path} -thresh 0.1 -out risultato.json'
             result = subprocess.run(darknet_command, shell=True, capture_output=True, text=True)
+            print(darknet_command)
+            print(os.getcwd())
 
             if result.returncode == 0:
                 with open('risultato.json', 'r') as json_file:
