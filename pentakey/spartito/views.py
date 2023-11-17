@@ -37,7 +37,6 @@ def upload_spartito(request):
             spartito = form.save()
             image_path = spartito.spartito_image.path
             darknet_path = get_darknet_path()
-
             # I improved the code, but it would still benefit from os.abspatthing even these ones
             darknet_exec_path = f'{darknet_path}/darknet'
             darknet_command = f'{darknet_exec_path} detector test {darknet_path}/data/obj.data {darknet_path}/yolov3-spp.cfg {darknet_path}/yolov3-spp_final.weights {image_path} -thresh 0.1 -out risultato.json'
@@ -65,7 +64,7 @@ def upload_spartito(request):
                 return redirect("download_file")
 
             else:
-                return JsonResponse({'error': 'Errore durante il riconoscimento oggetti'})
+                return render(request, 'error.html')
     else:
         form = SpartitoForm()
     return render(request, 'upload_spartito.html', {'form': form})
