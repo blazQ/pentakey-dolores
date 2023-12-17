@@ -11,7 +11,6 @@ from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
 from django.http import FileResponse
 
-
 def get_darknet_path():
     current_path = os.getcwd()
     parent_directory = os.path.abspath(os.path.join(current_path, ".."))
@@ -27,8 +26,6 @@ def get_src_path():
     current_path = os.getcwd()
     src_path = os.path.abspath(os.path.join(current_path, "src"))
     return src_path
-
-
 
 def upload_spartito(request):
     if request.method == 'POST':
